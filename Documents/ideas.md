@@ -15,3 +15,11 @@
 + drifting power ups in an actual car game, similar to wii party tank game
 
  either some sort of platformer, (a)rpg, or racing game possibly, leaving that up to the random generator to decide
+
+ we have a little guy :) 
+
+ his goal is to meet another tiny lover because they are in love!! 
+
+ they were always tiny, bros just a tiny guy in a big world. he is about 3-4 inches tall, and has a very hard time finding shoes :(
+
+    
