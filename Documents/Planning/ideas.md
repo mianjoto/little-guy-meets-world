@@ -8,8 +8,6 @@
 
 + someone drifting off to sleep and fighting sleep paralysis demons on the way, or trying to differentiate between reality and sleep stuff*
 
-
-
 + game where ur a “drifter” in maybe a sci-fi/fantasy world and u have to collect certain things in your current area before moving to the next
 
 + you play as a snowflake and try to avoid being eaten/blown into a snowdrift/etc etc
