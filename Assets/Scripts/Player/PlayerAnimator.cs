@@ -20,11 +20,11 @@ public class PlayerAnimator : MonoBehaviour
 
     void Start()
     {
+        _animator.speed = _animatorSpeed;
     }
 
     void Update()
     {   
-        _animator.speed = _animatorSpeed;
         AnimateRun();
         AnimateJump();
     }

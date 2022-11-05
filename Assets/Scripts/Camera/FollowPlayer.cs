@@ -72,11 +72,9 @@ public class FollowPlayer : MonoBehaviour
     Vector3 clampYTransition(Vector3 startingPosition)
     {
         float yDifference = MathF.Abs(_playerTransform.position.y - _lastPlayerPosition.y);
-        print("y difference = " + yDifference);
         // Don't move y position if under threshold
         if (yDifference > _dontMoveYThreshold)
         {
-            print("Clamping y");
             return new Vector2(_playerTransform.position.x, _lastPlayerPosition.y);
         }
         else
