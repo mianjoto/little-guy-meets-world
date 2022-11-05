@@ -7,16 +7,9 @@ using UnityEngine;
 // Branched off of https://github.com/cmilr/Unity2D-Components/blob/master/Game/GameData.cs
 public class GameData
 {
-	public int CurrentScore		{ get; set; }
-	public int Lives			{ get; set; }
-	public int CurrentLevel		{ get; set; }
-
-	void Awake()
-	{
-		CurrentScore	= 0;
-		Lives			= 3;
-		CurrentLevel	= 1;
-	}
+	public int CurrentScore = 0;
+	public int Lives = 3;
+	public int CurrentLevel	= 1;
 
 	public void Save()
 	{
