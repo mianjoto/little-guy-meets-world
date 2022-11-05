@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
+guid: f7e72a62b15a2774b87edd731a0a3007
+=======
 guid: 958f62ad3a831e042990edcc366455ac
+>>>>>>> a2f4771122a0ce04134dc572f7f84532a106bd52
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -33,7 +37,11 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
+<<<<<<< HEAD
+    filterMode: 1
+=======
     filterMode: 0
+>>>>>>> a2f4771122a0ce04134dc572f7f84532a106bd52
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -42,12 +50,20 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
+<<<<<<< HEAD
+  spriteMode: 1
+=======
   spriteMode: 2
+>>>>>>> a2f4771122a0ce04134dc572f7f84532a106bd52
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
+<<<<<<< HEAD
+  spritePixelsToUnits: 100
+=======
   spritePixelsToUnits: 30
+>>>>>>> a2f4771122a0ce04134dc572f7f84532a106bd52
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -70,7 +86,11 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
+<<<<<<< HEAD
+    textureCompression: 1
+=======
     textureCompression: 0
+>>>>>>> a2f4771122a0ce04134dc572f7f84532a106bd52
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -103,6 +123,9 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
+<<<<<<< HEAD
+    sprites: []
+=======
     sprites:
     - serializedVersion: 2
       name: little_guy_sheet_0
@@ -440,6 +463,7 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+>>>>>>> a2f4771122a0ce04134dc572f7f84532a106bd52
     outline: []
     physicsShape: []
     bones: []
@@ -450,6 +474,9 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+<<<<<<< HEAD
+    nameFileIdTable: {}
+=======
     nameFileIdTable:
       little_guy_sheet_1: 1539959614
       little_guy_sheet_6: 1499443565
@@ -467,6 +494,7 @@ TextureImporter:
       little_guy_sheet_15: 449382088
       little_guy_sheet_10: -2072780993
       little_guy_sheet_13: 1850126962
+>>>>>>> a2f4771122a0ce04134dc572f7f84532a106bd52
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
