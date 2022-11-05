@@ -78,7 +78,6 @@ public class PlayerMovement : MonoBehaviour
         Jump();
         FastFall();
         FlipIfNecessary();
-        // print("timesincelastjump: " + _timeSinceLastJump + "s");
     }
 
     void FixedUpdate()
@@ -168,7 +167,6 @@ public class PlayerMovement : MonoBehaviour
             bool canShortJump = _timeSinceLastJump < _maxJumpTimeLength && _timeSinceLastJump > _minJumpTimeLength;
             if (_queuedShortJump || canShortJump)
             {
-                print("Short jumped");
                 // Halve air velocity
                 _rb.velocity /= 1.5f;
                 _rb.AddForce(Vector2.down * VerticalMovement, ForceMode2D.Force);
@@ -177,12 +175,9 @@ public class PlayerMovement : MonoBehaviour
             else if (!canShortJump)
             {
                 _queuedShortJump = true;
-                print("Queued short jump!");
             }
         }
         
-        // print("vmovement="+VerticalMovement);
-
         
         if (VerticalMovement < _fastFallDownThreshold)
         {
