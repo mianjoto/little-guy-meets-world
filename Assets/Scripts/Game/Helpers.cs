@@ -46,4 +46,23 @@ namespace Helpers
             return TimerDone;
         }
     }
+
+    public class SingletonHandler
+    {
+        public static GameObject ReturnGameObjectIfNotInitialized(GameObject obj, string gameObjectName = null, string tagName = null)
+        {
+            if (obj == null)
+            {
+                if (gameObjectName != null)
+                {
+                    return GameObject.Find(gameObjectName);
+                }
+                if (tagName != null)
+                {
+                    return GameObject.FindGameObjectWithTag(tagName);
+                }
+            }
+            return obj;
+        }
+    }
 }

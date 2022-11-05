@@ -1,20 +1,58 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Helpers;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    
+
+    #region Singletons
+        [SerializeField]
+        public static GameManager Instance { get; private set; }
+        [SerializeField]
+        public static GameObject Player;
+    #endregion
+
+    #region Scripts
+        [SerializeField]
+        private PlayerHealth _playerHealth;
+    #endregion
+
     [HideInInspector]
     public static GameData GameData;
 
-    void Start()
+    # region Events
+        [SerializeField]
+        public static Action OnPlayerTakeDamage;
+    # endregion
+
+    void Awake()
     {
         GameData = new GameData();
+
+        // GameManager Singleton
+        if (Instance != null && Instance != this) 
+        { 
+            Destroy(this); 
+        } 
+        else 
+        { 
+            Instance = this; 
+        }
+
+        Player = SingletonHandler.ReturnGameObjectIfNotInitialized(Player, "Player");
     }
 
-    void Update()
+    void Start()
     {
-        print("Score: " + GameData.CurrentScore);
+        _playerHealth.OnPlayerDied += HandlePlayerDeath;
     }
 
+    void HandlePlayerDeath()
+    {
+        // Player died :(
+        Debug.Log("Player died :(((");
+    }
 }
