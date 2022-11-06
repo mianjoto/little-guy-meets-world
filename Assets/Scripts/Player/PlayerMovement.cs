@@ -19,10 +19,11 @@ public class PlayerMovement : MonoBehaviour
         [SerializeField]
         private float _fastFallDownThreshold;
         [SerializeField]
-        private float _clampXSpeed = 15f;
+        private float _clampXSpeed = 6f;
         [SerializeField]
         private float _clampYSpeed = 15f;
         [SerializeField]
+        private List<LayerMask> _nonJumpableLayers;
         private LayerMask _groundLayer;
     #endregion
 
@@ -33,6 +34,8 @@ public class PlayerMovement : MonoBehaviour
         public float HorizontalMovement;
         [HideInInspector]
         public float VerticalMovement;
+        private bool _tryingToMoveHorizontally = false;
+        private bool _tryingToJump = false;
         private bool _isStillPressingJump = false;
         private bool _hasShortJumped = false;
         private bool _queuedShortJump = false;
@@ -40,6 +43,7 @@ public class PlayerMovement : MonoBehaviour
         private float _maxJumpTimeLength = 1f;
         private float _timeSinceLastJump;
     #endregion
+    [SerializeField]
     
     #region State checks
         [HideInInspector]
@@ -48,8 +52,11 @@ public class PlayerMovement : MonoBehaviour
             {
                 Vector2 center = _collider.bounds.center;
                 Vector2 bottomOfPlayer = new Vector2(center.x, center.y - _collider.bounds.extents.y);
-                RaycastHit2D hit = Physics2D.Raycast(bottomOfPlayer, Vector2.down, rayCastLength, _groundLayer);
+                Vector2 boxDimensions = new Vector2(rayCastLength, rayCastDepth);
 
+                int validLayers =~ LayerMask.GetMask("Ignore Raycast");
+                // print("LayerToMask: " + LayerMask.LayerToName(validLayers));
+                RaycastHit2D hit = Physics2D.BoxCast(bottomOfPlayer, boxDimensions, 0f, Vector2.down, 0.05f, validLayers);
                 if (hit.collider != null)
                 {
                     return true;
@@ -64,30 +71,55 @@ public class PlayerMovement : MonoBehaviour
     #endregion    
 
     [SerializeField]
-    private float rayCastLength = 0.5f;
-    private KeyCode _jumpKey = KeyCode.Space;
+    private float rayCastLength = 0.7f;
+    [SerializeField]
+    private float rayCastDepth = 0.2f;
+    private KeyCode _jumpKey = GameManager.JumpKey;
 
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
         _collider = GetComponent<BoxCollider2D>();
-        _runSpeed = 2.5f;
+        _runSpeed = 2.25f;
         IsFacingRight = true;
     }
 
     void Update()
     {
-        print(_rb.velocity);
-        Run();
-        Jump();
+        CheckForInput();
         FlipIfNecessary();
     }
 
-
     void FixedUpdate()
     {
-        ClampVelocity();    
+        if (_tryingToMoveHorizontally)
+        {
+            Run();
+        }
+        Jump();
+        if (_tryingToMoveHorizontally || _tryingToJump)
+        {
+            ClampVelocity();    
+        }
         FastFall();
+    }
+
+    private void CheckForInput()
+    {
+        HorizontalInput = Input.GetAxisRaw("Horizontal");
+        if (HorizontalInput != 0)
+        {
+            _tryingToMoveHorizontally = true;
+        }
+        else
+        {
+            _tryingToMoveHorizontally = false;
+        }
+
+        if (Input.GetKeyDown(_jumpKey))
+        {
+            _tryingToJump = true;
+        }
     }
 
     private void ClampVelocity()
@@ -103,7 +135,7 @@ public class PlayerMovement : MonoBehaviour
         HorizontalMovement = _rb.velocity.x;
         if (HorizontalInput == 0)
         {
-            ResetHorizontalVelocity();
+            // SlowHorizontalVelocity();
             return;
         }
 
@@ -117,17 +149,19 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void ResetHorizontalVelocity()
+    private void SlowHorizontalVelocity()
     {
-        _rb.velocity = new Vector2(0, _rb.velocity.y);
+        float penalty = 2f;
+        _rb.velocity = new Vector2(_rb.velocity.x / penalty, _rb.velocity.y);
     }
 
     void Jump()
     {
-        if (Input.GetKeyDown(_jumpKey) && IsGrounded)
+        if (_tryingToJump && IsGrounded)
         {
             _rb.AddForce(Vector2.up, ForceMode2D.Impulse);
             _isStillPressingJump = true;
+            _tryingToJump = false;
         }
         if (Input.GetKeyUp(_jumpKey))
         {
@@ -204,7 +238,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    void OnDrawGizmos()
+    void OnDrawGizmosSelected()
     {
         if (_collider == null)
         {
@@ -212,6 +246,9 @@ public class PlayerMovement : MonoBehaviour
         }
         Vector2 center = _collider.bounds.center;
         Vector2 bottomOfPlayer = new Vector2(center.x, center.y - _collider.bounds.extents.y);
-        Gizmos.DrawRay(bottomOfPlayer, Vector2.down * rayCastLength);
+        Vector2 boxDimensions = new Vector2(rayCastLength, rayCastDepth);
+
+
+        Gizmos.DrawWireCube(bottomOfPlayer, boxDimensions);
     }
 }

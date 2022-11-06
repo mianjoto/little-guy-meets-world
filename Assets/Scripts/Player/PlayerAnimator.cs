@@ -31,7 +31,8 @@ public class PlayerAnimator : MonoBehaviour
 
     private void AnimateRun()
     {
-        _animator.SetFloat(velocityMagnitudeParameter, Mathf.Abs(_playerMovement.HorizontalInput));
+        float hInput = _playerMovement.HorizontalInput;
+        _animator.SetFloat(velocityMagnitudeParameter, Mathf.Abs(hInput));
     }
 
     void AnimateJump()

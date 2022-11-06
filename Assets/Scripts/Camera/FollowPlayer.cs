@@ -82,4 +82,15 @@ public class FollowPlayer : MonoBehaviour
             return _playerTransform.position;
         }
     }
+
+    void OnDisable()
+    {
+        this.GetComponent<Camera>().enabled = false;
+    }
+
+    void OnEnable()
+    {
+        this.GetComponent<Camera>().enabled = true;
+    }
+
 }

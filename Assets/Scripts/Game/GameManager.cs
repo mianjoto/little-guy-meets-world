@@ -6,8 +6,6 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    
-
     #region Singletons
         [SerializeField]
         public static GameManager Instance { get; private set; }
@@ -28,6 +26,13 @@ public class GameManager : MonoBehaviour
         public static Action OnPlayerTakeDamage;
     # endregion
 
+    #region Keybinds
+        [HideInInspector]
+        public static KeyCode JumpKey = KeyCode.Space;
+        [HideInInspector]
+        public static KeyCode InteractKey = KeyCode.E;
+    #endregion
+    
     void Awake()
     {
         GameData = new GameData();
