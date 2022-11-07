@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Door : Interactable
 {
+    [SerializeField]
+    private Scenes GoToScene;
+    
     void Update()
     {
         Interact();
@@ -13,7 +16,8 @@ public class Door : Interactable
     {
         if (Input.GetKeyDown(GameManager.InteractKey) && CanInteract)
         {
-            print("Entered scene in " + this.gameObject.name);
+            print("Entered door");  
+            GameManager.SceneManager.SwitchToScene(GoToScene);
         }
     }
 }

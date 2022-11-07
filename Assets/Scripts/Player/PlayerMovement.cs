@@ -55,7 +55,6 @@ public class PlayerMovement : MonoBehaviour
                 Vector2 boxDimensions = new Vector2(rayCastLength, rayCastDepth);
 
                 int validLayers =~ LayerMask.GetMask("Ignore Raycast");
-                // print("LayerToMask: " + LayerMask.LayerToName(validLayers));
                 RaycastHit2D hit = Physics2D.BoxCast(bottomOfPlayer, boxDimensions, 0f, Vector2.down, 0.05f, validLayers);
                 if (hit.collider != null)
                 {

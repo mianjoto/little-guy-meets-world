@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2574595490342825160}
   - component: {fileID: 2574595490342825167}
   - component: {fileID: 2574595490342825165}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Fan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,8 +90,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1324792451
-  m_SortingLayer: 2
-  m_SortingOrder: -1
+  m_SortingLayer: 3
+  m_SortingOrder: 0
   m_Sprite: {fileID: 469348029, guid: 0a4605c1494b2f34f920132df88e4058, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -176,7 +176,7 @@ GameObject:
   - component: {fileID: 2574595491032037341}
   - component: {fileID: 2574595491032037343}
   - component: {fileID: 2574595491032037340}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Wind
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -237,7 +237,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1324792451
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -2055144046, guid: ede2fdff501be184aa02ec2e83c08cb4, type: 3}
   m_Color: {r: 0.86687654, g: 1, b: 0.8537736, a: 0.34901962}

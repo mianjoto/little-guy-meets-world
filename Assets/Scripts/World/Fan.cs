@@ -14,7 +14,7 @@ public class Fan : MonoBehaviour
 
     void Start()
     {
-        _playerRb = GameManager.Player.GetComponent<Rigidbody2D>();
+        _playerRb = GameObject.FindWithTag("Player").GetComponent<Rigidbody2D>();
     }
 
     void Update()

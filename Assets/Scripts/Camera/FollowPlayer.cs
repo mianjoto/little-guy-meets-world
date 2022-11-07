@@ -19,7 +19,8 @@ public class FollowPlayer : MonoBehaviour
     
     void Start()
     {
-        _playerTransform = GameManager.Player.GetComponent<Transform>();
+        // _playerTransform = GameManager
+        _playerTransform = GameObject.FindWithTag("Player").GetComponent<Transform>();
         _mainCameraTransform = Camera.main.transform;
         _cameraZPosition = _mainCameraTransform.transform.position.z;
         _useSmoothCamera = true;
