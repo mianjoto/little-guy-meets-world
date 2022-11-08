@@ -13,7 +13,8 @@ you're a little guy just going through the dangerous world. navigate dangerous o
 This game is still under development, so look forward to future updates :)
 
 ## Play the game :)
-You can download and play little guy meets world for free [here](https://baconballs.itch.io/little-guy-meets-world)!
+You can download and play little guy meets world [here](https://baconballs.itch.io/little-guy-meets-world)!
+
 ![](./Documents/Gameplay%20Demos/Screenshots/little-guy-meets-world-download-page.jpg)
 
 ## Screenshots 📷
