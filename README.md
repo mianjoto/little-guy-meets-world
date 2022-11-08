@@ -2,7 +2,7 @@
 
 <p align="center">
     <img src="./Documents//Gameplay%20Demos/Videos/little-guy-meets-world-title-screen.gif" width=90%> <br>
-    you're just a little guy drifting thru the world :3
+    you're just a little guy drifting through the world :3
 </p>
 
 ---
